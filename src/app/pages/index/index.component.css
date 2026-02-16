@@ -23,6 +23,14 @@ img {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   }
   
+  /* Ensure Cinzel font is applied to mobile logo text */
+  .mobile-logo-overlay .font-logo {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
   /* Enhanced glow on logo image for mobile */
   .mobile-logo-overlay .logo-glow {
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.9))

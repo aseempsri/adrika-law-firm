@@ -46,6 +46,21 @@
   .navbar-overlay span {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);
   }
+
+  /* Scroll-based hide/show for desktop navbar */
+  nav.navbar-scroll {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  nav.navbar-scroll.navbar-hidden {
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 }
 
 /* Mobile bottom navigation styles */

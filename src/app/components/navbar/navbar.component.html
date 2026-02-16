@@ -1,4 +1,4 @@
-<nav [@fadeInDown] class="md:fixed md:top-0 md:left-0 md:right-0 relative z-50 flex items-center justify-between px-8 py-5 navbar-overlay">
+<nav [@fadeInDown] [class.navbar-hidden]="!isNavbarVisible" class="md:fixed md:top-0 md:left-0 md:right-0 relative z-50 flex items-center justify-between px-8 py-5 navbar-overlay navbar-scroll">
   <a routerLink="/" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
     <img 
       src="assets/alf-logo.png" 
@@ -14,13 +14,24 @@
   <!-- Desktop Navigation -->
   <div class="hidden md:flex items-center gap-10">
     @for (link of navLinks; track link.route) {
-      <a
-        [routerLink]="link.route"
-        routerLinkActive="text-primary"
-        class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
-      >
-        {{ link.label }}
-      </a>
+      @if (link.route === '/') {
+        <a
+          [routerLink]="link.route"
+          [routerLinkActiveOptions]="{exact: true}"
+          routerLinkActive="text-primary"
+          class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
+        >
+          {{ link.label }}
+        </a>
+      } @else {
+        <a
+          [routerLink]="link.route"
+          routerLinkActive="text-primary"
+          class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
+        >
+          {{ link.label }}
+        </a>
+      }
     }
   </div>
 </nav>
