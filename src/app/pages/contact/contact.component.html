@@ -1,0 +1,179 @@
+<div class="min-h-screen bg-background text-foreground pb-20 md:pb-0">
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 md:pt-24 pb-20 px-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 
+        [@fadeInUp]
+        class="font-display text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wider"
+        style="animation-delay: 0.1s; opacity: 1;"
+      >
+        CONTACT <span class="text-gold-gradient">US</span>
+      </h1>
+      <p 
+        [@fadeInUp]
+        class="font-heading text-sm uppercase tracking-[0.3em] text-muted-foreground max-w-2xl"
+        style="animation-delay: 0.3s; opacity: 1;"
+      >
+        Get in Touch for Expert Legal Consultation
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div [@fadeInUp] style="animation-delay: 0.2s; opacity: 1;">
+          <h2 class="font-display text-4xl md:text-5xl mb-8 tracking-wider">
+            Send Us a <span class="text-gold-gradient">Message</span>
+          </h2>
+          <form (ngSubmit)="onSubmit()" class="space-y-6">
+            <div>
+              <label class="block font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                [(ngModel)]="formData.name"
+                name="name"
+                required
+                class="w-full bg-card/30 border border-border px-4 py-3 font-heading text-sm uppercase tracking-wider text-foreground focus:outline-none focus:border-primary transition-colors"
+                placeholder="Your Name"
+              />
+            </div>
+            <div>
+              <label class="block font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                [(ngModel)]="formData.email"
+                name="email"
+                required
+                class="w-full bg-card/30 border border-border px-4 py-3 font-heading text-sm uppercase tracking-wider text-foreground focus:outline-none focus:border-primary transition-colors"
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div>
+              <label class="block font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                [(ngModel)]="formData.phone"
+                name="phone"
+                class="w-full bg-card/30 border border-border px-4 py-3 font-heading text-sm uppercase tracking-wider text-foreground focus:outline-none focus:border-primary transition-colors"
+                placeholder="+91 123 456 7890"
+              />
+            </div>
+            <div>
+              <label class="block font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                Subject
+              </label>
+              <input
+                type="text"
+                [(ngModel)]="formData.subject"
+                name="subject"
+                required
+                class="w-full bg-card/30 border border-border px-4 py-3 font-heading text-sm uppercase tracking-wider text-foreground focus:outline-none focus:border-primary transition-colors"
+                placeholder="Legal Matter"
+              />
+            </div>
+            <div>
+              <label class="block font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                Message
+              </label>
+              <textarea
+                [(ngModel)]="formData.message"
+                name="message"
+                required
+                rows="6"
+                class="w-full bg-card/30 border border-border px-4 py-3 font-heading text-sm uppercase tracking-wider text-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                placeholder="Tell us about your legal matter..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full font-heading text-sm uppercase tracking-[0.2em] px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div [@fadeInUp] style="animation-delay: 0.4s; opacity: 1;">
+          <h2 class="font-display text-4xl md:text-5xl mb-8 tracking-wider">
+            Contact <span class="text-gold-gradient">Information</span>
+          </h2>
+          <div class="space-y-8">
+            <div class="border border-border bg-card/30 backdrop-blur-sm p-8 hover:border-primary transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center flex-shrink-0">
+                  <lucide-icon name="scale" class="w-6 h-6 text-primary"></lucide-icon>
+                </div>
+                <div>
+                  <h3 class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    Email
+                  </h3>
+                  <a href="mailto:{{ contactInfo.email }}" class="font-heading text-sm uppercase tracking-wider text-foreground hover:text-primary transition-colors">
+                    {{ contactInfo.email }}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-border bg-card/30 backdrop-blur-sm p-8 hover:border-primary transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center flex-shrink-0">
+                  <lucide-icon name="scale" class="w-6 h-6 text-primary"></lucide-icon>
+                </div>
+                <div>
+                  <h3 class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    Phone
+                  </h3>
+                  <a href="tel:{{ contactInfo.phone }}" class="font-heading text-sm uppercase tracking-wider text-foreground hover:text-primary transition-colors">
+                    {{ contactInfo.phone }}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-border bg-card/30 backdrop-blur-sm p-8 hover:border-primary transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center flex-shrink-0">
+                  <lucide-icon name="scale" class="w-6 h-6 text-primary"></lucide-icon>
+                </div>
+                <div>
+                  <h3 class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    Address
+                  </h3>
+                  <p class="font-heading text-sm uppercase tracking-wider text-foreground leading-relaxed">
+                    {{ contactInfo.address }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 border-t border-border pt-8">
+            <h3 class="font-heading text-lg uppercase tracking-wider mb-4 text-primary">
+              Office Hours
+            </h3>
+            <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Monday - Friday: 9:00 AM - 6:00 PM
+            </p>
+            <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+              Saturday: 10:00 AM - 2:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-scrolling-strip></app-scrolling-strip>
+</div>

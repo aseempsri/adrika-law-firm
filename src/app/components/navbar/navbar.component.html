@@ -1,0 +1,93 @@
+<nav [@fadeInDown] class="md:fixed md:top-0 md:left-0 md:right-0 relative z-50 flex items-center justify-between px-8 py-5 navbar-overlay">
+  <a routerLink="/" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+    <img 
+      src="assets/alf-logo.png" 
+      alt="Adrika Law Firm Logo" 
+      class="logo-glow h-12 w-12 md:h-16 md:w-16 object-contain"
+      style="image-rendering: -webkit-optimize-contrast; image-rendering: auto;"
+    />
+    <span class="font-logo text-lg md:text-2xl lg:text-3xl tracking-wider text-foreground">
+      Adrika <span class="text-gold-gradient font-semibold">Law Firm</span>
+    </span>
+  </a>
+
+  <!-- Desktop Navigation -->
+  <div class="hidden md:flex items-center gap-10">
+    @for (link of navLinks; track link.route) {
+      <a
+        [routerLink]="link.route"
+        routerLinkActive="text-primary"
+        class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </div>
+</nav>
+
+<!-- Mobile Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-border bg-background/98 backdrop-blur-md">
+  <div class="grid grid-cols-5 gap-0">
+    <!-- Practice Areas -->
+    <a
+      routerLink="/practice-areas"
+      routerLinkActive="mobile-nav-active"
+      class="mobile-nav-item flex flex-col items-center justify-center gap-1.5 py-3 px-1 text-muted-foreground hover:text-primary transition-all duration-300 active:bg-primary/10"
+    >
+      <div class="nav-dot w-1.5 h-1.5 rounded-full bg-current opacity-60"></div>
+      <span class="font-heading text-[9px] uppercase tracking-[0.15em] text-center leading-tight">
+        PRACTICE
+      </span>
+    </a>
+
+    <!-- Our Team -->
+    <a
+      routerLink="/our-team"
+      routerLinkActive="mobile-nav-active"
+      class="mobile-nav-item flex flex-col items-center justify-center gap-1.5 py-3 px-1 text-muted-foreground hover:text-primary transition-all duration-300 active:bg-primary/10"
+    >
+      <div class="nav-dot w-1.5 h-1.5 rounded-full bg-current opacity-60"></div>
+      <span class="font-heading text-[9px] uppercase tracking-[0.15em] text-center leading-tight">
+        TEAM
+      </span>
+    </a>
+
+    <!-- Logo - Clickable to Home -->
+    <a
+      routerLink="/"
+      [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="mobile-nav-active"
+      class="mobile-nav-item flex flex-col items-center justify-center gap-1 py-2 px-1 hover:opacity-80 transition-all duration-300 active:bg-primary/10"
+    >
+      <img 
+        src="assets/alf-logo.png" 
+        alt="Adrika Law Firm Logo" 
+        class="mobile-nav-logo w-8 h-8 object-contain"
+      />
+    </a>
+
+    <!-- About -->
+    <a
+      routerLink="/about"
+      routerLinkActive="mobile-nav-active"
+      class="mobile-nav-item flex flex-col items-center justify-center gap-1.5 py-3 px-1 text-muted-foreground hover:text-primary transition-all duration-300 active:bg-primary/10"
+    >
+      <div class="nav-dot w-1.5 h-1.5 rounded-full bg-current opacity-60"></div>
+      <span class="font-heading text-[9px] uppercase tracking-[0.15em] text-center leading-tight">
+        ABOUT
+      </span>
+    </a>
+
+    <!-- Contact -->
+    <a
+      routerLink="/contact"
+      routerLinkActive="mobile-nav-active"
+      class="mobile-nav-item flex flex-col items-center justify-center gap-1.5 py-3 px-1 text-muted-foreground hover:text-primary transition-all duration-300 active:bg-primary/10"
+    >
+      <div class="nav-dot w-1.5 h-1.5 rounded-full bg-current opacity-60"></div>
+      <span class="font-heading text-[9px] uppercase tracking-[0.15em] text-center leading-tight">
+        CONTACT
+      </span>
+    </a>
+  </div>
+</div>

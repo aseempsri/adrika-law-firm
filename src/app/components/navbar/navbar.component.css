@@ -1,0 +1,120 @@
+/* Component styles */
+.logo-glow {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))
+          drop-shadow(0 0 12px rgba(212, 175, 55, 0.4))
+          drop-shadow(0 0 16px rgba(212, 175, 55, 0.3));
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: high-quality;
+}
+
+@keyframes glow-pulse {
+  from {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))
+            drop-shadow(0 0 12px rgba(212, 175, 55, 0.4))
+            drop-shadow(0 0 16px rgba(212, 175, 55, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8))
+            drop-shadow(0 0 18px rgba(212, 175, 55, 0.6))
+            drop-shadow(0 0 24px rgba(212, 175, 55, 0.4));
+  }
+}
+
+.font-logo {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Desktop navbar overlay styling for home page */
+@media (min-width: 768px) {
+  .navbar-overlay {
+    background: transparent;
+    backdrop-filter: none;
+  }
+  
+  .navbar-overlay a,
+  .navbar-overlay span {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Mobile bottom navigation styles */
+@media (max-width: 768px) {
+  .fixed.bottom-0 {
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8);
+  }
+  
+  .mobile-nav-active {
+    color: hsl(40 80% 50%);
+  }
+  
+  .mobile-nav-active .nav-dot {
+    width: 8px;
+    height: 8px;
+    background-color: hsl(40 80% 50%);
+    opacity: 1 !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.8),
+                0 0 20px rgba(212, 175, 55, 0.4);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  
+  .mobile-nav-active span {
+    color: hsl(40 80% 50%);
+    font-weight: 600;
+  }
+
+  /* Mobile navigation logo */
+  .mobile-nav-logo {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))
+            drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-item:hover .mobile-nav-logo,
+  .mobile-nav-active .mobile-nav-logo {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.9))
+            drop-shadow(0 0 18px rgba(212, 175, 55, 0.6))
+            drop-shadow(0 0 24px rgba(212, 175, 55, 0.4));
+    transform: scale(1.1);
+  }
+
+  /* Active state for logo when on home page */
+  a[routerLink="/"].mobile-nav-active .mobile-nav-logo {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.9))
+            drop-shadow(0 0 18px rgba(212, 175, 55, 0.6))
+            drop-shadow(0 0 24px rgba(212, 175, 55, 0.4));
+    animation: pulse-logo 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes pulse-logo {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}

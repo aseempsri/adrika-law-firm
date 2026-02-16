@@ -1,0 +1,73 @@
+<div class="min-h-screen bg-background text-foreground pb-20 md:pb-0">
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 md:pt-24 pb-20 px-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 
+        [@fadeInUp]
+        class="font-display text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wider"
+        style="animation-delay: 0.1s; opacity: 1;"
+      >
+        PRACTICE <span class="text-gold-gradient">AREAS</span>
+      </h1>
+      <p 
+        [@fadeInUp]
+        class="font-heading text-sm uppercase tracking-[0.3em] text-muted-foreground max-w-2xl"
+        style="animation-delay: 0.3s; opacity: 1;"
+      >
+        Comprehensive Legal Expertise Across Multiple Domains
+      </p>
+    </div>
+  </section>
+
+  <!-- Practice Areas Grid -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (area of practiceAreas; track area.title; let i = $index) {
+          <div 
+            [@fadeInUp]
+            class="group relative border border-border bg-card/30 backdrop-blur-sm p-8 hover:border-primary transition-all duration-500 cursor-pointer"
+            style="animation-delay: {{ 0.1 + i * 0.1 }}s; opacity: 1;"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br {{ area.color }} opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center mb-6 group-hover:border-primary group-hover:scale-110 transition-all duration-300">
+                <lucide-icon name="scale" class="w-8 h-8 text-primary"></lucide-icon>
+              </div>
+              <h3 class="font-heading text-2xl uppercase tracking-wider mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                {{ area.title }}
+              </h3>
+              <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground leading-relaxed">
+                {{ area.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-4xl mx-auto text-center border-t border-border pt-20">
+      <h2 [@fadeInUp] class="font-display text-4xl md:text-6xl mb-6 tracking-wider" style="animation-delay: 0.5s; opacity: 1;">
+        Need <span class="text-gold-gradient">Legal Counsel?</span>
+      </h2>
+      <p [@fadeInUp] class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-8" style="animation-delay: 0.7s; opacity: 1;">
+        Our experienced team is ready to assist you
+      </p>
+      <a 
+        [@fadeInUp]
+        routerLink="/contact"
+        class="inline-block font-heading text-sm uppercase tracking-[0.2em] px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+        style="animation-delay: 0.9s; opacity: 1;"
+      >
+        Schedule Consultation
+      </a>
+    </div>
+  </section>
+
+  <app-scrolling-strip></app-scrolling-strip>
+</div>

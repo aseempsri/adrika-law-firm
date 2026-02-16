@@ -1,0 +1,144 @@
+<div class="min-h-screen bg-background text-foreground pb-20 md:pb-0">
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 md:pt-24 pb-20 px-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 
+        [@fadeInUp]
+        class="font-display text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wider"
+        style="animation-delay: 0.1s; opacity: 1;"
+      >
+        ABOUT <span class="text-gold-gradient">US</span>
+      </h1>
+      <p 
+        [@fadeInUp]
+        class="font-heading text-sm uppercase tracking-[0.3em] text-muted-foreground max-w-3xl leading-relaxed"
+        style="animation-delay: 0.3s; opacity: 1;"
+      >
+        For over a decade, Adrika Law Firm has stood as a beacon of legal excellence, 
+        defending rights and delivering justice with unwavering commitment and integrity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mobile Only: Advocates of Justice Section -->
+  <section class="md:hidden px-8 py-16">
+    <div class="flex flex-col items-center justify-center text-center">
+      <div [@fadeInUp] class="mb-8" style="animation-delay: 0.2s; opacity: 1;">
+        <img 
+          src="assets/alf-logo.png" 
+          alt="Adrika Law Firm Logo" 
+          class="logo-glow-mobile w-32 h-32 mx-auto object-contain"
+        />
+      </div>
+      <h2 
+        [@fadeInUp]
+        class="font-display text-4xl md:text-5xl mb-4 tracking-wider text-primary"
+        style="animation-delay: 0.3s; opacity: 1;"
+      >
+        ADVOCATES OF JUSTICE
+      </h2>
+      <p 
+        [@fadeInUp]
+        class="font-heading text-xs uppercase tracking-[0.2em] text-muted-foreground max-w-sm leading-relaxed"
+        style="animation-delay: 0.4s; opacity: 1;"
+      >
+        DELIVERING LEGAL EXCELLENCE WITH COMPASSION AND DEDICATION
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div [@fadeInUp] style="animation-delay: 0.2s; opacity: 1;">
+          <h2 class="font-display text-5xl md:text-6xl mb-8 tracking-wider">
+            Our <span class="text-gold-gradient">Mission</span>
+          </h2>
+          <p class="font-heading text-sm uppercase tracking-wider text-muted-foreground leading-relaxed mb-6">
+            When your rights are at stake, Adrika Law Firm stands with you. 
+            Our experienced advocates deliver unwavering legal counsel with integrity and precision.
+          </p>
+          <p class="font-heading text-sm uppercase tracking-wider text-muted-foreground leading-relaxed">
+            We believe that every individual deserves access to exceptional legal representation, 
+            regardless of the complexity of their case or the challenges they face.
+          </p>
+        </div>
+        <div [@fadeInUp] class="hidden lg:block border border-border bg-card/30 backdrop-blur-sm p-12" style="animation-delay: 0.4s; opacity: 1;">
+          <div class="flex justify-center mb-8">
+            <img 
+              src="assets/alf-logo.png" 
+              alt="Adrika Law Firm Logo" 
+              class="logo-glow-about w-32 h-32 md:w-40 md:h-40 object-contain"
+            />
+          </div>
+          <h3 class="font-heading text-2xl uppercase tracking-wider text-center mb-4 text-primary">
+            Advocates of Justice
+          </h3>
+          <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground text-center leading-relaxed">
+            Delivering legal excellence with compassion and dedication
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto border-t border-border pt-20">
+      <h2 [@fadeInUp] class="font-display text-5xl md:text-6xl mb-12 tracking-wider text-center" style="animation-delay: 0.1s; opacity: 1;">
+        Our <span class="text-gold-gradient">Values</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        @for (value of values; track value.title; let i = $index) {
+          <div 
+            [@fadeInUp]
+            class="border border-border bg-card/30 backdrop-blur-sm p-8 hover:border-primary transition-all duration-300"
+            style="animation-delay: {{ 0.2 + i * 0.1 }}s; opacity: 1;"
+          >
+            <h3 class="font-heading text-2xl uppercase tracking-wider mb-4 text-primary">
+              {{ value.title }}
+            </h3>
+            <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground leading-relaxed">
+              {{ value.description }}
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto border-t border-border pt-20">
+      <h2 [@fadeInUp] class="font-display text-5xl md:text-6xl mb-12 tracking-wider text-center" style="animation-delay: 0.1s; opacity: 1;">
+        Our <span class="text-gold-gradient">Journey</span>
+      </h2>
+      <div class="space-y-8">
+        @for (milestone of milestones; track milestone.year; let i = $index) {
+          <div 
+            [@fadeInUp]
+            class="flex flex-col md:flex-row gap-8 items-start border-l-2 border-primary/30 pl-8 md:pl-12"
+            style="animation-delay: {{ 0.2 + i * 0.1 }}s; opacity: 1;"
+          >
+            <div class="flex-shrink-0">
+              <span class="font-display text-4xl text-primary">{{ milestone.year }}</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading text-xl uppercase tracking-wider mb-2 text-foreground">
+                {{ milestone.title }}
+              </h3>
+              <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground leading-relaxed">
+                {{ milestone.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <app-scrolling-strip></app-scrolling-strip>
+</div>

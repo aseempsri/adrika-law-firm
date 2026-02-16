@@ -1,0 +1,32 @@
+/* Component styles */
+.scrolling-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrolling-strip {
+  display: inline-flex;
+  animation: scroll-seamless 35s linear infinite;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+/* Seamless scroll: animate by exactly 1/3 (one set width)
+   When animation resets to 0%, the second set will be in the exact 
+   position where the first set started, creating a seamless loop */
+@keyframes scroll-seamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+/* Ensure smooth rendering and prevent visual glitches */
+.scrolling-strip {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}

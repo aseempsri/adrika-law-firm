@@ -1,0 +1,91 @@
+<div class="min-h-screen bg-background text-foreground overflow-hidden home-page" style="background-color: #000000;">
+  <!-- Desktop Navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative flex flex-col md:pt-0">
+    <!-- Mobile Logo Overlay -->
+    <div class="md:hidden absolute top-0 left-0 z-30 p-4 mobile-logo-overlay">
+      <a routerLink="/" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <img 
+          src="assets/alf-logo.png" 
+          alt="Adrika Law Firm Logo" 
+          class="logo-glow h-12 w-12 object-contain"
+          style="image-rendering: -webkit-optimize-contrast; image-rendering: auto;"
+        />
+        <span class="font-logo text-lg tracking-wider text-foreground">
+          ADRIKA <span class="text-gold-gradient">LAW FIRM</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Lady Justice full background -->
+    <div
+      #heroRef
+      (mousemove)="onMouseMove($event)"
+      (mouseleave)="onMouseLeave()"
+      class="relative flex items-center justify-center md:top-0"
+      style="height: 100vh; min-height: 100vh; perspective: 1200px; background-color: #000000;"
+    >
+      <div
+        [@fadeInScale]
+        [ngStyle]="getImageTransformStyle()"
+        class="absolute inset-0 z-0 w-full h-full overflow-hidden"
+        style="background-color: #000000;"
+      >
+        <img
+          src="assets/lady-justice.jpg"
+          alt="Lady Justice - Symbol of law and fairness"
+          class="w-full h-full object-cover md:object-contain object-center"
+          style="max-width: 100vw; max-height: 100vh; background-color: #000000;"
+          onerror="this.onerror=null; this.src='assets/lady-justice.svg'"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30 pointer-events-none"></div>
+      </div>
+
+      <!-- 3D ADRIKA Title -->
+      <h1
+        [@fadeInUp]
+        [ngStyle]="getTransformStyle()"
+        class="relative z-20 font-display text-[6rem] md:text-[11rem] lg:text-[16rem] leading-none tracking-[0.08em] select-none pointer-events-none adrika-3d"
+      >
+        ADRIKA
+      </h1>
+    </div>
+
+    <!-- Scrolling Strip -->
+    <app-scrolling-strip></app-scrolling-strip>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end px-8 py-12 gap-8 pb-20 md:pb-12">
+      <div
+        [@fadeInUpSmall]
+        class="max-w-sm"
+        style="animation-delay: 0.8s; opacity: 1;"
+      >
+        <h2 class="font-heading text-sm uppercase tracking-[0.2em] text-primary mb-3">
+          Advocates of Justice
+        </h2>
+        <p class="text-xs leading-relaxed text-muted-foreground font-heading uppercase tracking-wider">
+          When your rights are at stake, Adrika Law Firm stands with you.
+          Our experienced advocates deliver unwavering legal counsel with
+          integrity and precision.
+        </p>
+      </div>
+
+      <div
+        [@fadeInUpSmall]
+        class="flex items-center gap-4"
+        style="animation-delay: 1s; opacity: 1;"
+      >
+        <a
+          routerLink="/contact"
+          class="font-heading text-sm uppercase tracking-[0.2em] px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center gap-2"
+        >
+          Consult Now <lucide-icon name="arrow-up-right" class="w-4 h-4"></lucide-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

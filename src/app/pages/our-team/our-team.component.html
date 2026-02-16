@@ -1,0 +1,89 @@
+<div class="min-h-screen bg-background text-foreground pb-20 md:pb-0">
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 md:pt-24 pb-20 px-8">
+    <div class="max-w-7xl mx-auto">
+      <h1 
+        [@fadeInUp]
+        class="font-display text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wider"
+        style="animation-delay: 0.1s; opacity: 1;"
+      >
+        OUR <span class="text-gold-gradient">TEAM</span>
+      </h1>
+      <p 
+        [@fadeInUp]
+        class="font-heading text-sm uppercase tracking-[0.3em] text-muted-foreground max-w-2xl"
+        style="animation-delay: 0.3s; opacity: 1;"
+      >
+        Experienced Advocates Dedicated to Your Success
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Members Grid -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        @for (member of teamMembers; track member.name; let i = $index) {
+          <div 
+            [@fadeInUp]
+            class="group relative border border-border bg-card/30 backdrop-blur-sm p-10 hover:border-primary transition-all duration-500"
+            style="animation-delay: {{ 0.1 + i * 0.15 }}s; opacity: 1;"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-6">
+                <div>
+                  <h3 class="font-heading text-3xl uppercase tracking-wider mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {{ member.name }}
+                  </h3>
+                  <p class="font-heading text-xs uppercase tracking-[0.2em] text-primary mb-1">
+                    {{ member.role }}
+                  </p>
+                  <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+                    {{ member.specialization }} • {{ member.experience }}
+                  </p>
+                </div>
+                <div class="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center group-hover:border-primary group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <lucide-icon name="scale" class="w-10 h-10 text-primary"></lucide-icon>
+                </div>
+              </div>
+              <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground leading-relaxed">
+                {{ member.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="px-8 pb-20">
+    <div class="max-w-7xl mx-auto border-t border-border pt-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div [@fadeInUp] class="text-center" style="animation-delay: 0.5s; opacity: 1;">
+          <h3 class="font-heading text-xl uppercase tracking-wider mb-4 text-primary">Integrity</h3>
+          <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+            Unwavering commitment to ethical practice
+          </p>
+        </div>
+        <div [@fadeInUp] class="text-center" style="animation-delay: 0.7s; opacity: 1;">
+          <h3 class="font-heading text-xl uppercase tracking-wider mb-4 text-primary">Excellence</h3>
+          <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+            Pursuing the highest standards in legal representation
+          </p>
+        </div>
+        <div [@fadeInUp] class="text-center" style="animation-delay: 0.9s; opacity: 1;">
+          <h3 class="font-heading text-xl uppercase tracking-wider mb-4 text-primary">Dedication</h3>
+          <p class="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+            Your success is our mission
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-scrolling-strip></app-scrolling-strip>
+</div>
