@@ -34,8 +34,11 @@ jobs:
       - name: Build
         run: npm run build -- --base-href=/adrika-law-firm/
 
-      - name: Copy index.html to 404.html for SPA routing
-        run: cp ./dist/adrika-legal-light/browser/index.html ./dist/adrika-legal-light/browser/404.html
+      - name: Copy index.html to 404.html for SPA routing (fixes all routes)
+        run: |
+          cp ./dist/adrika-legal-light/browser/index.html ./dist/adrika-legal-light/browser/404.html
+          echo "404.html created successfully for SPA routing"
+          ls -la ./dist/adrika-legal-light/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
