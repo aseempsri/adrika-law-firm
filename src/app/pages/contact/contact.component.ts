@@ -29,8 +29,8 @@ import { ScrollingStripComponent } from '../../components/scrolling-strip/scroll
 export class ContactComponent {
   contactInfo = {
     email: 'contact@adrikalaw.com',
-    phone: '+91 123 456 7890',
-    address: '123 Legal District, Justice Avenue, New Delhi - 110001'
+    phones: ['+91-9106060363', '+91-9815461615'],
+    address: '597, Airhe Road, Chandmari, Post- Lamhi\nVaranasi, Uttar Pradesh - 221007\nIndia'
   };
 
   formData = {

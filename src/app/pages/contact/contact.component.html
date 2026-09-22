@@ -133,11 +133,15 @@
                 </div>
                 <div>
                   <h3 class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                    Phone
+                    Call Us
                   </h3>
-                  <a href="tel:{{ contactInfo.phone }}" class="font-heading text-sm uppercase tracking-wider text-foreground hover:text-primary transition-colors">
-                    {{ contactInfo.phone }}
-                  </a>
+                  <div class="space-y-2">
+                    @for (phone of contactInfo.phones; track phone) {
+                      <a href="tel:{{ phone }}" class="block font-heading text-sm uppercase tracking-wider text-foreground hover:text-primary transition-colors">
+                        {{ phone }}
+                      </a>
+                    }
+                  </div>
                 </div>
               </div>
             </div>
@@ -149,9 +153,9 @@
                 </div>
                 <div>
                   <h3 class="font-heading text-sm uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                    Address
+                    Visit Us
                   </h3>
-                  <p class="font-heading text-sm uppercase tracking-wider text-foreground leading-relaxed">
+                  <p class="font-heading text-sm uppercase tracking-wider text-foreground leading-relaxed whitespace-pre-line">
                     {{ contactInfo.address }}
                   </p>
                 </div>
