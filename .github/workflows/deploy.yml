@@ -32,7 +32,8 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href=/adrika-law-firm/
+        # Root base-href required for custom domain (adrikalawfirm.com)
+        run: npm run build -- --base-href=/
 
       - name: Copy index.html to 404.html for SPA routing (fixes all routes)
         run: |
